@@ -6,4 +6,4 @@ install:
 script:
   - python hello.py
   - coverage run --source=home hello.py
-after_success: coveralls
+after_success: coveralls 
