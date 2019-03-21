@@ -34,6 +34,7 @@ script:
   - chmod +x mvnw
   - ./mvnw clean test
   - ./mvnw com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
+  - coveralls < coverage/lcov.info
   - ./mvnw verify -Pprod -DskipTests
 notifications:
   webhooks:
