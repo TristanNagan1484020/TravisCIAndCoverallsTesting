@@ -44,4 +44,5 @@ deploy:
     provider: heroku
     api_key: 
         secure: d17078f8-9515-4eba-8b4c-11bdebea753e
+    app: jhipstertestrepo
     skip_cleanup: true
