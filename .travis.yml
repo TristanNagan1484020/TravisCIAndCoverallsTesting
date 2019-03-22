@@ -30,6 +30,7 @@ before_install:
   - npm -v
 install:
   - npm install
+  - npm install heroku
 script:
   - chmod +x mvnw
   - ./mvnw clean test
