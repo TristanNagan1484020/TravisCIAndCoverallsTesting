@@ -38,8 +38,7 @@ script:
   - ./mvnw clean test
   - ./mvnw com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
   - ./mvnw verify -Pprod -DskipTests
-  - ./mvnw package -Pprod -DskipTests
-  - heroku deploy:war target/*.war --app jhipstertestrepo
+  - heroku deploy:jar target/*.war --app jhipstertestrepo
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
