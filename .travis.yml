@@ -33,12 +33,14 @@ install:
   - npm install
   - npm install heroku
   - heroku plugins:install heroku-cli-deploy
+  - heroku plugins:install java
 script:
   - chmod +x mvnw
   - ./mvnw clean test
   - ./mvnw com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run test' -Dmaven.repo.local=$MAVEN_USER_HOME
   - ./mvnw verify -Pprod -DskipTests
-  - heroku deploy:jar target/*.war --app jhipstertestrepo
+  - heroku buildpacks:clear --app jhipstertestrepo
+  - heroku deploy:war target/*.war --app jhipstertestrepo
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
